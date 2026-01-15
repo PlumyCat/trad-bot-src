@@ -16,14 +16,11 @@ Avant de commencer, ayez sous la main :
 ### Depuis le déploiement Azure
 - ✅ **Nom du Storage Account** : `sttradtestclient`
 - ✅ **Clé du Storage Account** : (depuis deployment-*.json)
-- ✅ **Translator Key** : (depuis deployment-*.json)
-- ✅ **Translator Endpoint** : `https://api.cognitive.microsofttranslator.com`
+- ✅ **Translator Key** : clé de la fonction déployée
+- ✅ **Translator Endpoint** : url de la fonction déployée
 
 ### Fichiers nécessaires
-- ✅ **Solution** : `Solution/BotCopilotTraducteur_1_0_0_4.zip`
-- ✅ **Config** : `connector-config-test-client.json`
-- ✅ **Deployment info** : `deployment-test-client-*.json`
-
+- ✅ **Solution** : `Solution/BotCopilotTraducteur_xxxx.zip`
 ---
 
 ## 🚀 Déploiement Étape par Étape
@@ -33,7 +30,6 @@ Avant de commencer, ayez sous la main :
 1. Ouvrir un navigateur
 2. Aller sur : **https://copilotstudio.microsoft.com**
 3. Se connecter avec le compte client
-   - User : `admin@M365x22192715.onmicrosoft.com`
    - Compléter l'authentification MFA si demandée
 
 4. Vérifier l'environnement en haut à droite
@@ -58,7 +54,7 @@ Avant de commencer, ayez sous la main :
 #### 2.2 Sélectionner le fichier
 
 1. Cliquer sur **"Parcourir"** ou **"Browse"**
-2. Sélectionner : `BotCopilotTraducteur_1_0_0_4.zip`
+2. Sélectionner : `BotCopilotTraducteur_xxxx.zip`
 3. Cliquer sur **"Suivant"** / **"Next"**
 
 ![Import Solution](images/import.png)
@@ -96,8 +92,8 @@ Clé d'accès au compte     : <STORAGE_KEY depuis deployment.json>
 Si demandé pendant l'import, renseigner :
 
 ```
-Translator-key : <TRANSLATOR_KEY depuis deployment.json>
-Translator-url : https://api.cognitive.microsofttranslator.com
+Translator-key : <TRANSLATOR_KEY>
+Translator-url : <TRANSLATOR_URL>
 ```
 
 **Option B : Après l'import**
@@ -107,8 +103,8 @@ Si vous n'avez pas renseigné pendant l'import :
 1. Une fois l'import terminé, ouvrir la solution
 2. Aller dans **"Variables d'environnement"**
 3. Éditer chaque variable :
-   - `Translator-key` → Valeur depuis deployment.json
-   - `Translator-url` → `https://api.cognitive.microsofttranslator.com`
+   - `Translator-key` → Valeur
+   - `Translator-url` → Valeur
 
 ![Variables](images/vars.png)
 
@@ -151,7 +147,7 @@ Si vous n'avez pas renseigné pendant l'import :
 1. Aller dans **"Variables"** (dans les paramètres du bot)
 2. Vérifier que les variables suivantes sont configurées :
    - ✅ `Translator-key` : Doit avoir une valeur
-   - ✅ `Translator-url` : Doit être `https://api.cognitive.microsofttranslator.com`
+   - ✅ `Translator-url` : Doit avoir une valeur
 
 ---
 
@@ -331,7 +327,7 @@ Vérifier que les flux suivants sont présents :
 **Solutions** :
 1. Vérifier que l'Azure Function fonctionne :
    ```bash
-   curl https://func-translation-test-client.azurewebsites.net/api/health
+   curl https://func-translation-xxxx.azurewebsites.net/api/health
    ```
 2. Vérifier la `Translator-key` dans les variables
 3. Vérifier la `Translator-url`
@@ -379,7 +375,6 @@ Vérifier que les flux suivants sont présents :
 **Monitoring :**
 - Logs Copilot Studio : Dans l'interface du bot
 - Logs Power Automate : Historique des flux
-- Logs Azure Function : Application Insights ou `az functionapp log tail`
 
 ---
 
@@ -417,4 +412,4 @@ Après avoir suivi toutes les étapes :
 
 *Guide créé le : 2026-01-08*  
 *Version : 1.1 - Corrigé avec étapes validées*  
-*Solution : BotCopilotTraducteur_1_0_0_4.zip*
+*Solution : BotCopilotTraducteur_xxxx.zip*
