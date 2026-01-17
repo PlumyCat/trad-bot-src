@@ -145,14 +145,28 @@ Solution_Bot/
 # Deployment files (sensitive)
 deployment-*.json
 connector-config-*.json
+
+# Credential files - NEVER commit these!
 *.key
 *.secret
+*secret*
+credentials.*
+.env*
+*.pem
+*.pfx
+*.p12
 
 # Temporary deployment files
 .deployment_temp/
 
-# Client folders contain sensitive data
+# Client folders - deployment reports are safe to commit
+# ONLY exclude credential files within client folders
 clients/*/deployment-*.json
 clients/*/connector-config-*.json
 clients/*/*.key
 clients/*/*.secret
+clients/*/*secret*
+clients/*/credentials.*
+
+# NOTE: clients/ folder itself is TRACKED (deployment reports are safe)
+# DO NOT add "clients/" to this file!
